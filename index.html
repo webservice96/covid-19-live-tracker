@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>Covid-19 Live Tracker</title>
+    <link rel="stylesheet" href="assets/css/bundle.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nk-body">
+    <div class="nk-wrap">
+        <header class="nk-header bg-light has-overlay" id="home">
+            <div class="overlay shape shape-a"></div>
+            <div class="nk-navbar is-light is-sticky" id="navbar">
+                <div class="container">
+                    <div class="nk-navbar-wrap">
+                        <div class="nk-navbar-logo logo">
+                            <a href="./" class="logo-link"> <img class="logo-dark" src="images/logo-dark.png" srcset="images/logo-dark2x.png 2x" alt="logo"> <img class="logo-light" src="images/logo-white.png" srcset="images/logo-white2x.png 2x" alt="logo"> </a>
+                        </div>
+                        <div class="nk-navbar-toggle d-lg-none"> <a href="#" class="toggle" data-menu-toggle="navbar-menu"><em class="icon-menu icon ni ni-menu"></em><em
+                                    class="icon-close icon ni ni-cross"></em></a></div>
+                        <nav class="nk-navbar-menu" id="navbar-menu">
+                            <ul class="nk-menu">
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" href="">Home</a>
+                                </li>
+                                <li class="nk-menu-item">
+                                    <a class="scrollto nav-link nk-menu-link" href="#symptoms">দেশ
+                                        অনুসন্ধান</a>
+                                </li>
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" target="_blank" href="https://www.globalwebcore.com/">About Me</a></li>
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" target="_blank" href="https://covid19api.com/">About API</a></li>
+                                <li class="nk-menu-item"><a class="scrollto nav-link nk-menu-link" target="_blank" href="https://www.globalwebcore.com/contact-me/">Contact Me</a></li>
+                            </ul>
+                            <ul class="nk-menu-btns">
+                                <li class="nk-menu-item">
+                                    <a href="#symptoms" class="btn btn-sm scrollto nav-link">Country Search</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-banner">
+                <div class="container">
+                    <div class="row g-gs align-items-center justify-content-between">
+                        <div class="col-lg-5 order-lg-last">
+                            <div class="nk-banner-image"> <img src="images/header-a.png" alt=""></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="nk-banner-block">
+                                <div class="content">
+                                    <h1 class="heading"> <span>CORONA</span> <span class="heading-sm"> <span
+                                                class="sup">COVID-19</span> <span class="sub">VIRUS</span> </span>
+                                    </h1>
+                                    <p>The Coronavirus (COVID-19) was first reported in Wuhan, Hubei, China in December 2019, the outbreak was later recognized as a pandemic by the World Health Organization (WHO) on 11 March 2020.</p>
+                                    <ul class="nk-banner-btns">
+                                        <li>
+                                            <a href="#symptoms" class="btn scrollto">
+                                                <span>Country Search</span>
+                                            </a>
+                                            <li>
+                                                <a href="#about" class="btn btn-transparent scrollto">
+                                                    <span>About Me</span></a>
+                                            </li>
+
+                                    </ul>
+                                    <div class="status" data-covid="world">
+                                        <div class="row g-gs">
+                                            <div class="col-sm-4 col-6">
+                                                <div class="status-item">
+                                                    <h6 class="title"><strong>মোট আক্রান্তঃ</strong></h6>
+                                                    <div id="TotalConfirmed" class="h3 count covid-stats-cases">00000
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-6">
+                                                <div class="status-item">
+                                                    <h6 class="title"><strong>মোট মৃতঃ</strong></h6>
+                                                    <div id="TotalDeaths" class="h3 count covid-stats-death">00000
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-6">
+                                                <div class="status-item">
+                                                    <h6 class="title">নতুন আক্রান্তঃ</h6>
+                                                    <div id="NewConfirmed" class="h3 count covid-stats-recovered">00000
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="status-note">* Last updated: <span class="covid-update-time">~</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="nk-pages">
+            <section class="section section-l bg-white section-symptom" id="symptoms">
+                <div class="container">
+                    <div class="section-head country-selction text-center wide-lg">
+                        <h5 class="subtitle">Search by country</h5>
+                        <h2 class="title">Covid-19 Live Tracker</h2>
+                        <select id="country-selector" class="js-example-basic-single" name="state">
+                            <option value=""></option>
+                            <option value="all-countries">All Countries</option>
+                        </select>
+                    </div>
+                    <div class="section-content">
+                        <div id="country-covid-container" class="row justify-content-center">
+                            <!-- single item start -->
+
+                            <!-- single item start -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="nk-footer bg-dark tc-light has-overlay">
+            <div class="overlay shape shape-c"></div>
+            <section class="section section-footer section-m tc-light">
+                <div class="container">
+
+                    <div class="nk-footer-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <p class="nk-copyright">&copy; Covid-19 live tracking by Helal Uddin Owner of
+                                    <a href="https://globalwebcore.com/"> <span style="color: #f86168;"> Global Web
+                                            Core</span></a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="assets/js/scipt.js"></script>
+    <!-- covid 19 API implement -->
+    <script src="assets/js/covid-19-api.js"></script>
+</body>
+
+</html>
